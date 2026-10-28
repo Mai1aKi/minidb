@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f1420">
+<title>MiniDB · 浏览器里的迷你数据库</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗄️</text></svg>">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🗄️ MiniDB <span class="brand-sub">浏览器里的迷你数据库引擎</span></div>
+    <div class="top-actions">
+      <button id="reset-btn" type="button" class="ghost">重置示例数据</button>
+      <a class="gh-link" href="https://github.com/Mai1aKi/minidb" target="_blank" rel="noreferrer">GitHub 仓库</a>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <h2>数据库结构</h2>
+      <div id="schema" class="schema"></div>
+      <p class="hint">表和数据保存在浏览器的 localStorage 里，刷新页面不会丢。引擎本身（词法分析、语法分析、执行器）全部在本地运行。</p>
+    </aside>
+
+    <section class="console">
+      <div id="samples" class="samples"></div>
+      <textarea id="editor" spellcheck="false" aria-label="SQL 编辑器"></textarea>
+      <div class="toolbar">
+        <button id="run-btn" type="button" class="primary">▶ 运行</button>
+        <span class="kbd-hint">Ctrl / Cmd + Enter 运行</span>
+        <span id="status" class="status"></span>
+      </div>
+      <div id="log" class="log" aria-live="polite"></div>
+      <div id="result" class="result"></div>
+    </section>
+  </main>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
